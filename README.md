@@ -12,6 +12,9 @@ This project's main goal is to create a user-friendly weather app with the follo
 
 - **Automatic IP Detection**: The app will automatically detect the user's IP address and display weather information for their current location.
 
+## Design
+![Design](resources/design-1.png)
+![Design with dropdown](resources/design-2.png)
 ## Getting Started
 
 Follow these steps to get started with contributing to the project:
