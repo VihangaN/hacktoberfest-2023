@@ -24,7 +24,7 @@ Follow these steps to get started with contributing to the project:
 2. **Clone the Repository**: Clone your forked repository to your local machine using the following command:
 
    ```
-   git clone https://github.com/your-username/hacktoberfest-2023-weather-app.git
+   git clone https://github.com/VihangaN/hacktoberfest-2023
    ```
 
 3. **Install Dependencies**: Make sure you have the necessary dependencies installed. You might need Node.js and npm. Check the project's `package.json` for more information.
@@ -49,7 +49,7 @@ Follow these steps to get started with contributing to the project:
    git push origin feature/add-weather-info
    ```
 
-8. **Create a Pull Request**: Go to the [original repository](https://github.com/hacktoberfest-2023-weather-app) and click the "New Pull Request" button. Provide a descriptive title and description for your pull request, then submit it.
+8. **Create a Pull Request**: Go to the [original repository](https://github.com/VihangaN/hacktoberfest-2023) and click the "New Pull Request" button. Provide a descriptive title and description for your pull request, then submit it.
 
 ## Contribution Guidelines
 
