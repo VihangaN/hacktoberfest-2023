@@ -1,6 +1,8 @@
 .map-base {
   width: 100%;
   height: 100%;
+  padding: 5rem;
+  box-sizing: border-box;
   path {
     stroke-width: 0;
     fill: $map-fill;
