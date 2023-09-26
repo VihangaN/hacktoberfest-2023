@@ -55,6 +55,7 @@ Follow these steps to get started with contributing to the project:
 
 Please follow these guidelines when contributing to the project:
 
+- Review the issue in the checklist and assign yourself to a feature by adding your GitHub handle [checklist](https://github.com/VihangaN/hacktoberfest-2023/issues/1)
 - Create a new branch for each set of changes you make and name it descriptively.
 
 - Make sure your code follows best practices, is well-documented, and is free of errors.
