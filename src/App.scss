@@ -1,6 +1,24 @@
 .main-container {
   height: 100dvh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  padding: 1.5rem;
+
+  .top-nav-bar {
+    height: 3rem;
+    flex-direction: row;
+    width: 100%;
+  }
+  .map-view-container {
+    height: calc(100dvh - 7.5rem);
+    width: 100%;
+  }
+  .footer-bar {
+    height: 3rem;
+    width: 100%;
+  }
 }
