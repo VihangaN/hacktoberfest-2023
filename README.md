@@ -1,6 +1,6 @@
 # Hacktober Fest 2023 Weather App
 
-Welcome to the Hacktober Fest 2023 Weather App project! This open-source project aims to create a weather application with a world map, allowing users to select a country from a dropdown menu and providing automatic IP detection to display the user's country and weather information. We invite you to contribute to this project as part of Hacktober Fest 2023, which begins on October 26th!
+Welcome to the Hacktober Fest 2023 Weather App project! This open-source project aims to create a weather application with a world map, allowing users to select a country from a dropdown menu and providing automatic IP detection to display the user's country and weather information. We invite you to contribute to this project as part of Hacktober Fest 2023, which begins on October!
 
 ## Project Overview
 
