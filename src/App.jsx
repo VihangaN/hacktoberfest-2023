@@ -6,7 +6,7 @@ function App() {
   const mapRef = useRef();
 
   useEffect(() => {
-    mapRef?.current.highlightCountry('RU');
+    mapRef?.current.highlightCountry('LK');
   }, []);
 
   return (
