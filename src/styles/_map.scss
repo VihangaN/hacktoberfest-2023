@@ -1,0 +1,23 @@
+.map-base {
+  width: 100%;
+  height: 100%;
+  padding: 5rem;
+  box-sizing: border-box;
+  path {
+    stroke-width: 0;
+    fill: $map-fill;
+    &.highlight {
+      fill: $text-secondary;
+      animation: glow 1s infinite alternate;
+    }
+  }
+}
+
+@keyframes glow {
+  0% {
+    fill: rgba($text-secondary, 0.7);
+  }
+  100% {
+    fill: rgba($text-secondary, 1);
+  }
+}
