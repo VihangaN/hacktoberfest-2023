@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.scss';
 import MapView from './components/Map';
+import NavBar from './components/Navbar';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   const mapRef = useRef();
@@ -11,7 +13,9 @@ function App() {
 
   return (
     <div className="main-container">
-      <nav className="top-nav-bar"></nav>
+      <nav className="top-nav-bar">
+        <NavBar />
+      </nav>
       <div className="map-view-container">
         <MapView ref={mapRef} />
       </div>
