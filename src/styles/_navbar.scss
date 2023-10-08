@@ -1,0 +1,79 @@
+.top-nav-bar {
+  .navbar {
+    background: none !important;
+    .nav-link {
+      padding: 0;
+      margin: 0;
+      font-size: 1.25rem;
+      color: $text-secondary !important;
+    }
+    .dropdown-menu {
+      max-height: 50vh;
+      overflow-y: auto;
+      background: $countrySelectBg;
+      padding-top: 0;
+      min-width: 20rem !important;
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $countrySelectBg;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $bgcolor;
+        height: 5rem;
+        border-radius: 4px;
+      }
+
+      li {
+        .dropdown-item {
+          color: $text-primary !important;
+          font-size: 0.9rem;
+          cursor: pointer;
+          &:hover {
+            background: $bgcolor;
+          }
+        }
+      }
+      .country-select {
+        position: sticky;
+        top: 0;
+        background: $countrySelectBg;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        &::after {
+          position: absolute;
+          content: '';
+          width: 90%;
+          height: 1px;
+          background: $text-primary;
+          bottom: 0;
+        }
+        .search-country-input {
+          background: none;
+          width: 100%;
+          margin: 0 auto;
+          border: none;
+          user-select: none;
+          outline: none;
+          color: $text-primary;
+          &::placeholder {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: $text-primary;
+          }
+        }
+      }
+    }
+    .navbar-brand {
+      color: $text-primary;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
