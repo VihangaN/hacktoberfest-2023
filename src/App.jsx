@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './App.scss';
 import MapView from './components/Map';
 import NavBar from './components/Navbar';
