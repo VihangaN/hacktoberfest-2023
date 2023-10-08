@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { countries } from 'countries-list';
+import { Appcontext } from '../context/appContext';
 
 const CountrySelect = () => {
   const countryArr = Object.entries(countries).map(([code, value]) => ({
@@ -12,6 +13,8 @@ const CountrySelect = () => {
   const filteredCountries = countryArr.filter((country) =>
     country.value.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const { setActiveCountry, activeCountry } = useContext(Appcontext);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -41,7 +44,7 @@ const CountrySelect = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Country
+                {activeCountry?.name || 'country'}
               </a>
               <ul
                 className="dropdown-menu dropdown-menu-dark"
@@ -58,7 +61,15 @@ const CountrySelect = () => {
                 </li>
                 {filteredCountries?.map((country) => {
                   return (
-                    <li key={country.code}>
+                    <li
+                      key={country.code}
+                      onClick={() =>
+                        setActiveCountry({
+                          code: country.code,
+                          name: country?.value.name,
+                        })
+                      }
+                    >
                       <span className="dropdown-item text-warning">
                         {country?.value.name}
                       </span>
