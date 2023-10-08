@@ -11,6 +11,14 @@
       animation: glow 1s infinite alternate;
     }
   }
+  g {
+    &.highlight {
+      path {
+        fill: $text-secondary;
+        animation: glow 1s infinite alternate;
+      }
+    }
+  }
 }
 
 @keyframes glow {
