@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './App.scss';
 import MapView from './components/Map';
-import NavBar from './components/Navbar.jsx';
+import NavBar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
