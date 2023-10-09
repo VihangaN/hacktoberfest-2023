@@ -4,7 +4,10 @@ import React, { createContext, useState } from 'react';
 const Appcontext = createContext();
 
 const AppProvider = ({ children }) => {
-  const [activeCountry, setActiveCountry] = useState();
+  const [activeCountry, setActiveCountry] = useState({
+    code: '',
+    name: '',
+  });
 
   const data = {
     activeCountry,
