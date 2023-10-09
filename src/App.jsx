@@ -8,14 +8,21 @@ import axios from 'axios';
 import constants from './utils/constants';
 
 function App() {
-  
   const mapRef = useRef();
   const [locationData, setLocationData] = useState();
-  const { activeCountry } = useContext(Appcontext);
+  const { activeCountry, setActiveCountry } = useContext(Appcontext);
 
   useEffect(() => {
     mapRef?.current.highlightCountry(activeCountry?.code);
   }, [activeCountry]);
+
+  const setCountry = async (code, name) => {
+    await setActiveCountry({
+      code,
+      name,
+    });
+    console.log(activeCountry, code);
+  };
 
   useEffect(() => {
     let unmounted = false;
@@ -24,14 +31,15 @@ function App() {
         if (res.status === 200) {
           if (!unmounted) {
             getWeather(res.data.country_name);
+            setCountry(res.data?.country_code, res.data.country_name);
           }
         }
       });
-    }
+    };
     getCurrentLocation();
     return () => {
       unmounted = true;
-    }
+    };
   }, []);
 
   useEffect(() => {
@@ -41,16 +49,19 @@ function App() {
   }, [activeCountry]);
 
   const getWeather = async (countryName) => {
-    await axios.get(`${constants.WEATHER_API_BASE_URL}/current.json`, {
-      params: {
-        key: constants.WEATHER_API_KEY,
-        q: countryName,
-        aqi: 'no'
-      }
-    }).then((res) => {
+    await axios
+      .get(`${constants.WEATHER_API_BASE_URL}/current.json`, {
+        params: {
+          key: constants.WEATHER_API_KEY,
+          q: countryName,
+          aqi: 'no',
+        },
+      })
+      .then((res) => {
         setLocationData(res.data);
         console.log(res.data);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
       });
   };
