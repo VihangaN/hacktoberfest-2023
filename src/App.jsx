@@ -4,6 +4,7 @@ import MapView from './components/Map';
 import NavBar from './components/CountrySelect';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Appcontext } from './context/appContext';
+import axios from 'axios';
 
 function App() {
   const mapRef = useRef();
@@ -12,6 +13,27 @@ function App() {
   useEffect(() => {
     mapRef?.current.highlightCountry(activeCountry?.code);
   }, [activeCountry]);
+
+
+  useEffect(() => {
+    let unmounted = false;
+
+    const getCurrentLocation = async () => {
+      await axios.get('https://ipapi.co/json/').then((res) => {
+        if(res.status === 200) {
+          if (!unmounted) {
+            console.log(res.data);//returns current user location by ip address
+          }
+        }
+      });
+    }
+
+    getCurrentLocation();
+
+    return () => {
+      unmounted = true;
+    }
+  }, []);
 
   return (
     <div className="main-container">
