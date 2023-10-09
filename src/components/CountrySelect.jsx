@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { countries } from 'countries-list';
 import { Appcontext } from '../context/appContext';
+import Loader from './Loader';
 
 const CountrySelect = () => {
   const countryArr = Object.entries(countries).map(([code, value]) => ({
@@ -20,7 +21,7 @@ const CountrySelect = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <div className="navbar-brand" href="#">
-          Where are you from?
+          You are from
         </div>
         <button
           className="navbar-toggler"
@@ -44,7 +45,11 @@ const CountrySelect = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {activeCountry?.name || 'country'}
+                {activeCountry?.name ? (
+                  `${activeCountry?.name} ?` || 'country'
+                ) : (
+                  <Loader />
+                )}
               </a>
               <ul
                 className="dropdown-menu dropdown-menu-dark"

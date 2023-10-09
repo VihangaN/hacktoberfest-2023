@@ -6,6 +6,8 @@
       margin: 0;
       font-size: 1.25rem;
       color: $text-secondary !important;
+      display: flex;
+      align-items: center;
     }
     .dropdown-menu {
       max-height: 50vh;
