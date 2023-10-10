@@ -10,8 +10,9 @@ import constants from './utils/constants';
 function App() {
   const mapRef = useRef();
   const [locationData, setLocationData] = useState();
+  const [ip, setIP] = useState("0.0.0.0")
+  const [country, setIPCountry] = useState("")
   const { activeCountry, setActiveCountry } = useContext(Appcontext);
-
   useEffect(() => {
     mapRef?.current.highlightCountry(activeCountry?.code);
   }, [activeCountry]);
@@ -32,6 +33,8 @@ function App() {
           if (!unmounted) {
             getWeather(res.data.country_name);
             setCountry(res.data?.country_code, res.data.country_name);
+            setIP(res.data.ip)
+            setIPCountry(res.data?.country_code)
           }
         }
       });
@@ -74,7 +77,10 @@ function App() {
       <div className="map-view-container">
         <MapView ref={mapRef} />
       </div>
-      <div className="footer-bar"></div>
+      <div className="footer-bar">
+        <img className="d-flex justify-content-start" src={`https://flagsapi.com/${country}/flat/32.png`} />
+        <div className="d-flex justify-content-end" style={{ color: "white" }}>IP: {ip}</div>
+      </div>
     </div>
   );
 }
