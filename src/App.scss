@@ -16,6 +16,24 @@
   .map-view-container {
     height: calc(100dvh - 7.5rem);
     width: 100%;
+    .weather-data-wrapper {
+      position: absolute;
+      right: 5rem;
+      width: 25rem;
+      height: 10rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.8;
+      img {
+        height: 100%;
+      }
+      .temp-data {
+        font-size: 5rem;
+        color: $text-primary;
+        font-weight: 600;
+      }
+    }
   }
   .footer-bar {
     height: 3rem;

@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
     code: '',
     name: '',
   });
-  const [userIp, setUserIp] = useState('0.0.0.0');
+  const [userIp, setUserIp] = useState(null);
   const [weatherData, setWeatherData] = useState([]);
 
   const data = {
