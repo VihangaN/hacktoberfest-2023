@@ -67,6 +67,10 @@ Please follow these guidelines when contributing to the project:
 - Remember that this project follows the Hacktober Fest code of conduct. Please be respectful and inclusive in your interactions.
 - ⚠️ We added a weather API key for easy use of the project since this is open source (not a best practice). Please don't misuse it.
 
+### Contributors
+<a href="https://github.com/VihangaN/hacktoberfest-2023/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=VihangaN/hacktoberfest-2023" />
+</a>
 
 ## Contact
 
