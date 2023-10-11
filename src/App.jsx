@@ -1,4 +1,4 @@
-import { useEffect, useRef, useContext, useState } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import './App.scss';
 import MapView from './components/Map';
 import NavBar from './components/CountrySelect';
@@ -7,6 +7,7 @@ import { Appcontext } from './context/appContext';
 import axios from 'axios';
 import constants from './utils/constants';
 import Loader from './components/Loader';
+import WeatherData from './components/WeatherData';
 
 function App() {
   const mapRef = useRef();
@@ -21,7 +22,6 @@ function App() {
       code,
       name,
     });
-    console.log(activeCountry, code);
   };
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function App() {
         },
       })
       .then((res) => {
-        setWeatherData(res?.data);
+        setWeatherData(res?.data.current);
         console.log(res.data);
       })
       .catch((error) => {
@@ -73,6 +73,7 @@ function App() {
         <NavBar />
       </nav>
       <div className="map-view-container">
+        <WeatherData />
         <MapView ref={mapRef} />
       </div>
       <div className="footer-bar">
@@ -84,7 +85,13 @@ function App() {
           <Loader />
         )}
         <div>
-          Your IP : &nbsp;<span>{userIp}</span>
+          {userIp ? (
+            <>
+              Your IP : &nbsp;<span>{userIp}</span>
+            </>
+          ) : (
+            <Loader />
+          )}
         </div>
       </div>
     </div>
