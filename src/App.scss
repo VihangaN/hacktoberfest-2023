@@ -27,11 +27,13 @@
       opacity: 0.8;
       img {
         height: 100%;
+        animation: fade-in 2s ease forwards;
       }
       .temp-data {
         font-size: 5rem;
         color: $text-primary;
         font-weight: 600;
+        animation: fade-in 2s ease forwards;
       }
     }
   }
@@ -46,6 +48,15 @@
     span {
       color: $text-secondary;
     }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
   }
 }
 

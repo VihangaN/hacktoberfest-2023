@@ -18,7 +18,7 @@ const CountrySelect = () => {
   const { setActiveCountry, activeCountry } = useContext(Appcontext);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand navbar-dark bg-dark">
       <div className="container-fluid">
         <div className="navbar-brand" href="#">
           You are from
