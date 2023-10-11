@@ -8,10 +8,16 @@ const AppProvider = ({ children }) => {
     code: '',
     name: '',
   });
+  const [userIp, setUserIp] = useState('0.0.0.0');
+  const [weatherData, setWeatherData] = useState([]);
 
   const data = {
     activeCountry,
     setActiveCountry,
+    userIp,
+    setUserIp,
+    weatherData,
+    setWeatherData,
   };
 
   return <Appcontext.Provider value={data}>{children}</Appcontext.Provider>;

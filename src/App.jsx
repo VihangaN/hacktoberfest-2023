@@ -6,13 +6,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Appcontext } from './context/appContext';
 import axios from 'axios';
 import constants from './utils/constants';
+import Loader from './components/Loader';
 
 function App() {
   const mapRef = useRef();
-  const [locationData, setLocationData] = useState();
-  const [ip, setIP] = useState("0.0.0.0")
-  const [country, setIPCountry] = useState("")
-  const { activeCountry, setActiveCountry } = useContext(Appcontext);
+  const { activeCountry, setActiveCountry, userIp, setUserIp, setWeatherData } =
+    useContext(Appcontext);
   useEffect(() => {
     mapRef?.current.highlightCountry(activeCountry?.code);
   }, [activeCountry]);
@@ -32,9 +31,8 @@ function App() {
         if (res.status === 200) {
           if (!unmounted) {
             getWeather(res.data.country_name);
-            setCountry(res.data?.country_code, res.data.country_name);
-            setIP(res.data.ip)
-            setIPCountry(res.data?.country_code)
+            setCountry(res.data?.country_code, res.data?.country_name);
+            setUserIp(res.data?.ip);
           }
         }
       });
@@ -47,7 +45,7 @@ function App() {
 
   useEffect(() => {
     if (activeCountry) {
-      getWeather(activeCountry.name);
+      getWeather(activeCountry?.name);
     }
   }, [activeCountry]);
 
@@ -61,7 +59,7 @@ function App() {
         },
       })
       .then((res) => {
-        setLocationData(res.data);
+        setWeatherData(res?.data);
         console.log(res.data);
       })
       .catch((error) => {
@@ -78,8 +76,16 @@ function App() {
         <MapView ref={mapRef} />
       </div>
       <div className="footer-bar">
-        <img className="d-flex justify-content-start" src={`https://flagsapi.com/${country}/flat/32.png`} />
-        <div className="d-flex justify-content-end" style={{ color: "white" }}>IP: {ip}</div>
+        {activeCountry?.code ? (
+          <img
+            src={`https://flagsapi.com/${activeCountry?.code}/flat/32.png`}
+          />
+        ) : (
+          <Loader />
+        )}
+        <div>
+          Your IP : &nbsp;<span>{userIp}</span>
+        </div>
       </div>
     </div>
   );
