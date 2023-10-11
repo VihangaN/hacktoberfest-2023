@@ -65,6 +65,7 @@ Please follow these guidelines when contributing to the project:
 - Be respectful and open to feedback from maintainers and other contributors.
 
 - Remember that this project follows the Hacktober Fest code of conduct. Please be respectful and inclusive in your interactions.
+- ⚠️ We added a weather API key for easy use of the project since this is open source (not a best practice). Please don't misuse it.
 
 
 ## Contact
