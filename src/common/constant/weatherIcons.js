@@ -2,6 +2,13 @@ import sunny from '@lxg/weather-icons/production/fill/svg/clear-day.svg';
 import night from '@lxg/weather-icons/production/fill/svg/clear-night.svg';
 import partly_cloudy from '@lxg/weather-icons/production/fill/svg/partly-cloudy-day.svg';
 import partly_cloudy_night from '@lxg/weather-icons/production/fill/svg/partly-cloudy-night.svg';
+import cloudy from '@lxg/weather-icons/production/fill/svg/cloudy.svg';
+import overcast from '@lxg/weather-icons/production/fill/svg/overcast.svg';
+import overcast_night from '@lxg/weather-icons/production/fill/svg/overcast-night.svg';
+import mist from '@lxg/weather-icons/production/fill/svg/mist.svg';
+import patchy_day from '@lxg/weather-icons/production/fill/svg/overcast-day-rain.svg';
+import patchy_day_night from '@lxg/weather-icons/production/fill/svg/overcast-night-rain.svg';
+import snowflake from '@lxg/weather-icons/production/fill/svg/snowflake.svg';
 
 const WEATHER_ICONS = {
   [1000]: { type: 'clear', day: sunny, night },
@@ -10,10 +17,14 @@ const WEATHER_ICONS = {
     day: partly_cloudy,
     night: partly_cloudy_night,
   },
-  [1006]: 'Cloudy',
-  [1009]: 'Overcast',
-  [1030]: 'Mist',
-  [1063]: 'Patchy rain possible',
+  [1006]: { type: 'Cloudy', day: cloudy, night: cloudy },
+  [1009]: { type: 'Overcast', day: overcast, night: overcast_night },
+  [1030]: { type: 'Mist', day: mist, night: mist },
+  [1063]: {
+    type: 'Patchy rain possible',
+    day: patchy_day,
+    night: patchy_day_night,
+  },
   [1066]: 'Patchy snow possible',
   [1069]: 'Patchy sleet possible',
   [1072]: 'Patchy freezing drizzle possible',
@@ -37,7 +48,7 @@ const WEATHER_ICONS = {
   [1204]: 'Light sleet',
   [1207]: 'Moderate or heavy sleet',
   [1210]: 'Patchy light snow',
-  [1213]: 'Light snow',
+  [1213]: { type: 'Light snow', day: snowflake, night: snowflake },
   [1216]: 'Patchy moderate snow',
   [1219]: 'Moderate snow',
   [1222]: 'Patchy heavy snow',
