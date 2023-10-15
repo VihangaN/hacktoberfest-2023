@@ -1,12 +1,13 @@
+import axios from 'axios';
 import { useEffect, useRef, useContext } from 'react';
 import './App.scss';
-import MapView from './components/Map';
-import NavBar from './components/CountrySelect';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Appcontext } from './context/appContext';
-import axios from 'axios';
 import constants from './utils/constants';
-import Loader from './components/Loader';
+
+import NavBar from './components/CountrySelect';
+import Footer from './components/Footer';
+import MapView from './components/Map';
 import WeatherData from './components/WeatherData';
 
 function App() {
@@ -60,7 +61,6 @@ function App() {
       })
       .then((res) => {
         setWeatherData(res?.data.current);
-        console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -77,22 +77,10 @@ function App() {
         <MapView ref={mapRef} />
       </div>
       <div className="footer-bar">
-        {activeCountry?.code ? (
-          <img
-            src={`https://flagsapi.com/${activeCountry?.code}/flat/32.png`}
-          />
-        ) : (
-          <Loader />
-        )}
-        <div>
-          {userIp ? (
-            <>
-              Your IP : &nbsp;<span>{userIp}</span>
-            </>
-          ) : (
-            <Loader />
-          )}
-        </div>
+        <Footer
+          countryCode={activeCountry.code}
+          userIP={userIp}
+        />
       </div>
     </div>
   );
