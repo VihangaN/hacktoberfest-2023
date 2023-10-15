@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useRef, useContext } from 'react';
+import { useEffect, useRef, useContext, useCallback } from 'react';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Appcontext } from './context/appContext';
@@ -9,6 +9,7 @@ import NavBar from './components/CountrySelect';
 import Footer from './components/Footer';
 import MapView from './components/Map';
 import WeatherData from './components/WeatherData';
+import Forcast from './components/forcast/Forcast';
 
 function App() {
   const mapRef = useRef();
@@ -45,12 +46,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (activeCountry) {
+    if (activeCountry.name) {
       getWeather(activeCountry?.name);
     }
   }, [activeCountry]);
 
-  const getWeather = async (countryName) => {
+  const getWeather = useCallback(async (countryName) => {
     await axios
       .get(`${constants.WEATHER_API_BASE_URL}/current.json`, {
         params: {
@@ -60,12 +61,14 @@ function App() {
         },
       })
       .then((res) => {
-        setWeatherData(res?.data.current);
+        if(res.status === 200 && res.statusText === "OK") {
+          setWeatherData(res?.data.current);
+        }
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  }, [setWeatherData]);
 
   return (
     <div className="main-container">
@@ -75,6 +78,7 @@ function App() {
       <div className="map-view-container">
         <WeatherData />
         <MapView ref={mapRef} />
+        <Forcast countryName={activeCountry.name} />
       </div>
       <div className="footer-bar">
         <Footer
