@@ -61,7 +61,7 @@ function App() {
         },
       })
       .then((res) => {
-        if(res.status === 200 && res.statusText === "OK") {
+        if(res.status === 200) {
           setWeatherData(res?.data.current);
         }
       })
