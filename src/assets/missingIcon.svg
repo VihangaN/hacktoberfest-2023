@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 454.84 421.63">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Inter-SemiBold, Inter;
+        font-size: 75px;
+        font-weight: 600;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #d2b863;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-2" d="m13.81,303.86h423.57c12.3,0,19.98-13.31,13.83-23.96L294.23,7.99c-6.15-10.65-21.53-10.65-27.68,0l-90.07,156.02,17.87,71.98-42.32-78.08-3.45-5.98-23.53-40.75c-4.74-8.21-16.59-8.21-21.33,0L3.14,285.39c-4.74,8.21,1.19,18.47,10.67,18.47Z"/>
+      <circle class="cls-2" cx="169.89" cy="62.8" r="36.74"/>
+      <text class="cls-1" transform="translate(0 397.66)"><tspan x="0" y="0">Missing icon</tspan></text>
+    </g>
+  </g>
+</svg>

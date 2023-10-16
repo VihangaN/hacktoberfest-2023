@@ -29,6 +29,14 @@
       img {
         height: 100%;
         animation: fade-in 2s ease forwards;
+        &.missing-icon {
+          width: 6rem;
+          border: 1px solid $text-secondary;
+          height: 6rem;
+          padding: 1rem;
+          border-radius: 10%;
+          margin-right: 0.5rem;
+        }
       }
       .temp-data {
         font-size: 5rem;

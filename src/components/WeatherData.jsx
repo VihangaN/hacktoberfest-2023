@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import WEATHER_ICONS from '../common/constant/weatherIcons';
 import { Appcontext } from '../context/appContext';
 import Loader from './Loader';
+import missingIcon from '../assets/missingIcon.svg';
 
 export default function WeatherData() {
   const { weatherData } = useContext(Appcontext);
@@ -14,8 +15,9 @@ export default function WeatherData() {
       {condition ? (
         <>
           <img
-            src={WEATHER_ICONS[condition?.code][getTime()]}
+            src={WEATHER_ICONS[condition?.code][getTime()] || missingIcon}
             alt={condition?.text}
+            className={!WEATHER_ICONS[condition?.code][getTime()] && 'missing-icon' }
           />
           <span className="temp-data">{feelslike_c || 0} &deg;</span>
         </>
