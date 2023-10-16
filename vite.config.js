@@ -17,4 +17,9 @@ export default defineConfig({
       },
     },
   },
+  define: {
+    "process.env": process.env,
+    VITE_WEATHER_API_URL: process.env.VITE_WEATHER_API_URL,
+    VITE_WEATHER_API_KEY: process.env.VITE_WEATHER_API_KEY,
+  },
 });
