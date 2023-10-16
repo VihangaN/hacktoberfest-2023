@@ -26,6 +26,7 @@
       justify-content: center;
       opacity: 1;
       top: 0;
+      cursor: pointer;
       img {
         height: 100%;
         animation: fade-in 2s ease forwards;
@@ -44,6 +45,23 @@
         font-weight: 600;
         animation: fade-in 2s ease forwards;
       }
+      .weather-tooltip {
+        color: $text-primary;
+        position: absolute;
+        border: 1px solid $text-primary;
+        bottom: -1rem;
+        font-size: 1rem;
+        z-index: 9;
+        padding: 0.25rem 1rem;
+        border-radius: 40px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      &:hover {
+        .weather-tooltip {
+          opacity: 1;
+        }
+      }
     }
   }
   .footer-bar {
@@ -59,6 +77,29 @@
     }
   }
 }
+section {
+  &.forcast {
+    min-height: 100dvh;
+    box-sizing: border-box;
+    padding: 5rem 1.5rem;
+    width: 100%;
+    position: relative;
+    .forcast-title {
+      position: sticky;
+      top: 0;
+      height: 5rem;
+      display: flex;
+      align-items: flex-end;
+      background-color: $bgcolor;
+      h3 {
+        top: 2rem;
+      }
+    }
+    .forcast-content {
+      margin-top: 3rem;
+    }
+  }
+}
 
 @keyframes fade-in {
   from {
@@ -67,6 +108,21 @@
   to {
     opacity: 0.8;
   }
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: $bgcolor;
+}
+::-webkit-scrollbar-thumb {
+  background: $text-primary;
+  border-radius: 40px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $text-secondary;
 }
 
 @import '@/styles/map';

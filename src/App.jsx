@@ -51,42 +51,44 @@ function App() {
     }
   }, [activeCountry]);
 
-  const getWeather = useCallback(async (countryName) => {
-    await axios
-      .get(`${constants.WEATHER_API_BASE_URL}/current.json`, {
-        params: {
-          key: constants.WEATHER_API_KEY,
-          q: countryName,
-          aqi: 'no',
-        },
-      })
-      .then((res) => {
-        if(res.status === 200) {
-          setWeatherData(res?.data.current);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [setWeatherData]);
+  const getWeather = useCallback(
+    async (countryName) => {
+      await axios
+        .get(`${constants.WEATHER_API_BASE_URL}/current.json`, {
+          params: {
+            key: constants.WEATHER_API_KEY,
+            q: countryName,
+            aqi: 'no',
+          },
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            setWeatherData(res?.data.current);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    [setWeatherData]
+  );
 
   return (
-    <div className="main-container">
-      <nav className="top-nav-bar">
-        <NavBar />
-      </nav>
-      <div className="map-view-container">
-        <WeatherData />
-        <MapView ref={mapRef} />
-        <Forcast countryName={activeCountry.name} />
+    <>
+      <div className="main-container">
+        <nav className="top-nav-bar">
+          <NavBar />
+        </nav>
+        <div className="map-view-container">
+          <WeatherData />
+          <MapView ref={mapRef} />
+        </div>
+        <div className="footer-bar">
+          <Footer countryCode={activeCountry.code} userIP={userIp} />
+        </div>
       </div>
-      <div className="footer-bar">
-        <Footer
-          countryCode={activeCountry.code}
-          userIP={userIp}
-        />
-      </div>
-    </div>
+      <Forcast countryName={activeCountry.name} />
+    </>
   );
 }
 

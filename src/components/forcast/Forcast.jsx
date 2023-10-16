@@ -41,14 +41,18 @@ const Forcast = ({ countryName }) => {
   }, [countryName]);
 
   return (
-    <div>
-      <h3>Weather Forcast</h3>
+    <section className="forcast">
+      <div className="forcast-title">
+        <h3>Weather Forcast</h3>
+      </div>
 
-      {weatherForcast &&
-        weatherForcast.map((weather, key) => (
-          <DayForcast key={key} weather={weather} />
-        ))}
-    </div>
+      <div className="forcast-content">
+        {weatherForcast &&
+          weatherForcast.map((weather, key) => (
+            <DayForcast key={key} weather={weather} />
+          ))}
+      </div>
+    </section>
   );
 };
 

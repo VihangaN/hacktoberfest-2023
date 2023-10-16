@@ -14,10 +14,13 @@ export default function WeatherData() {
     <div className="weather-data-wrapper">
       {condition ? (
         <>
+          <div className="weather-tooltip">{condition?.text}</div>
           <img
             src={WEATHER_ICONS[condition?.code][getTime()] || missingIcon}
             alt={condition?.text}
-            className={!WEATHER_ICONS[condition?.code][getTime()] && 'missing-icon' }
+            className={
+              !WEATHER_ICONS[condition?.code][getTime()] && 'missing-icon'
+            }
           />
           <span className="temp-data">{feelslike_c || 0} &deg;</span>
         </>
