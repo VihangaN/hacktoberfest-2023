@@ -30,7 +30,7 @@ const Forcast = ({ countryName }) => {
         },
       })
       .then((res) => {
-        console.log(res.data.forecast.forecastday);
+        console.log(res);
         if (res.status === 200 && res.statusText === 'OK') {
           setWeatherForcast(res.data.forecast.forecastday);
           console.log(res.data.forecast.forecastday);
