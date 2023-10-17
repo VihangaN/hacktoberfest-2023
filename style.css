@@ -1,0 +1,107 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+
+body{
+    background :url(web.jpg) no-repeat;
+    background-position: center;
+    background-size:cover;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all{
+    
+    position: relative;
+    width: 600px;
+    height: 350px;
+    border: 2px solid rgba(255,255,2550.5);
+    border-radius: 20px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+    
+    align-items: center;
+    margin: 40px;
+    font-size: 20px;
+    font-weight: 200px;
+    color: #FFFFDD;
+}
+
+.degree{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.result{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+
+.result label{
+    margin-right: 30px;
+}
+
+.result span{
+    font-size: 25px;
+    font-weight: 200px;
+}
+
+.button input{
+    align-items: center;
+    margin: 20px;
+    border-radius: 90px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    font-size: 17px ;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+    margin-left: 150px;
+    margin-right: 150px;
+    background-color: #A2C579;
+}
+
+.all label{
+    font-size: 20px;
+    font-weight: 500px;
+    color: #D2DE32;
+}
+
+.main input{
+    border-radius: 5px;
+    outline: none;
+    background: transparent;
+    box-shadow: 0px 0.5px 0.5px 0px;
+
+}
+
+.main select{
+    border-radius: 5px;
+    outline: none;
+    background: transparent;
+    box-shadow: 0px 0.5px 0.5px 0px;
+    font-size: 20px;
+    font-weight: 200px;
+
+}
+
+.button input:hover{
+    background-color: green;
+    box-shadow: 2px 2px 2px 2px teal;
+}
